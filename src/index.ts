@@ -193,6 +193,9 @@ events.on('contacts:submit', () => {
 					total: order.total,
 				}),
 			});
+
+			basketData.clear();
+			page.counter = basketData.items.length;
 		})
 		.catch((err) => {
 			console.error(err);
@@ -201,8 +204,6 @@ events.on('contacts:submit', () => {
 
 events.on('order:finally', () => {
 	modal.close();
-	basketData.clear();
-	page.counter = basketData.items.length;
 });
 
 events.on('modal:open', () => {
